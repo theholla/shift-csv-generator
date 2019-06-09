@@ -1,0 +1,16 @@
+{
+  "name": "shift-cal-json-to-csv",
+  "version": "1.0.0",
+  "description": "Tool that fetches events from the Shift calendar and converts them from JSON to CSV",
+  "main": "shift-cal-json-to-csv.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "csv": "node ./write-events-to-csv"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "json2csv": "^4.5.1"
+  }
+}

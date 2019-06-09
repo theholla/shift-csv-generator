@@ -31,17 +31,25 @@ function getTitle(event) {
   return event.title;
 }
 
+function getStartAndEnd(event) {
+  const startTime = transformTime(event.time);
+  if (event.endtime) {
+    return `${startTime} - ${transformTime(event.endtime)}`;
+  }
+  return startTime;
+}
+
 function mapForGcal(events) {
   return events.map(event => ({
       'Subject': getTitle(event),
       'Start Date': event.date,
       'Start Time': event.time,
-      'End Date': event.date, // sorry Angel
+      'End Date': event.date,
       'End Time': event.endtime,
       'Description': [
         event.newsflash ? `NEWSFLASH: ${event.newsflash}` : '',
         getTitle(event),
-        transformTime(event.time) + `${event.endtime ? ' - ' + transformTime(event.endtime) : ''}`,
+        getStartAndEnd(event),
         event.timedetails,
         '\n',
         'Event Type: ' + getEventType(event.audience),

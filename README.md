@@ -16,7 +16,7 @@ The above script will:
 
 NOTE: This captures the event data at a point in time, so it will get out of date.
 
-Each gCal event contains a link to the event on the Shift2Bikes site, so you can click that to get the most recent details. Or you could periodically re-run the script and drop the new CSV into your calendar (it will overwrite the old events).
+Each gCal event contains a link to the event on the Shift2Bikes site, so you can click that to get the most recent details. Or you could periodically re-run the script and drop the new CSV into your calendar (in my trials it seems to overwrite old versions of the events, as long as the CSV file has the same headers on each import).
 
 ## Importing into Google Calendar
 

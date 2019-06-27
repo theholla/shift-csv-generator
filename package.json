@@ -1,16 +1,23 @@
 {
   "name": "shift-cal-json-to-csv",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theholla/shift-csv-generator.git"
+  },
   "version": "1.0.0",
-  "description": "Tool that fetches events from the Shift calendar and converts them from JSON to CSV",
+  "description": "Tool that fetches events from the Shift2Bikes calendar and converts them from JSON to CSV",
   "main": "shift-cal-json-to-csv.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "csv": "node ./write-events-to-csv"
+    "test": "jest",
+    "csv": "FILE_TYPE='csv' node ./index",
+    "ics": "node ./index"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.0",
+    "ics": "^2.13.2",
+    "jest": "^24.8.0",
     "json2csv": "^4.5.1"
   }
 }

@@ -1,5 +1,6 @@
 ## Local files and folders
 output
+.DS_Store
 
 # Logs
 logs

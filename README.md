@@ -1,8 +1,8 @@
-# Shift2Bikes JSON to CSV/ICS generator
+# Shift2Bikes JSON to ICS generator
 
-While there is already an [event calendar](https://www.shift2bikes.org/pedalpalooza-calendar/) on Shift2Bikes.org, this script provides a way to see all the bike events alongside your personal cal.
+This tool generates an .ics file that includes all the events that are already on the Shift2Bikes.org [Pedalpalooza calendar](https://www.shift2bikes.org/pedalpalooza-calendar/). Each of the events conforms to the iCalendar format and matches the event's unique id, so the events stay synced even after users update them on Shift2Bikes.org.
 
-This tool generates an .ics file of events that will stay synced with their respective event on the Shift cal.
+NOTE: Events that aren't already on Shift2Bikes.org at the time you run the script will not be included! This simply isn't possible. You can get around this by re-running the script and importing the events as often as you like.
 
 ## Usage
 
@@ -13,21 +13,36 @@ npm run ics
 The above script will:
 
 * Call the Shift2Bikes API to get all [Pedalpalooza 2019](https://www.shift2bikes.org/pedalpalooza-calendar/) events
-* Transform the JSON data so it meets the [iCalendar specification](https://tools.ietf.org/html/rfc5545), which should be compatible with most modern calendar software
-* Generate an .ics file from the event data (saved in `output/events.ics`)
+* Transform the JSON data so it meets the [iCalendar specification](https://tools.ietf.org/html/rfc5545), which is the standard for most modern calendar software
+* Generate an .ics file from the event data
 
-## Importing into any modern calendar
+## Options
 
-Run `npm run ics` to generate an `.ics` file.
-Double-click on the file, and your phone or computer will prompt you to import the events into your calendar. It's recommended that you create a new calendar for this so you don't overwhelm your personal one.
+### Custom Date Range
 
-The events should stay up to date with the Shift cal (untested but likely).
+By default, `npm run ics` will get all events from the 2019 Pedalpalooza calendar (6-1-2019 til 6-30-2019). You may optionally pass in parameters to generate a calendar for a particular date range.
 
-NOTE: **Events that get added to the Shift cal after you generate the file will not be synced to your calendar**. To get new events, you can run `npm run ics` and import that file to your calendar as often as you like. No duplicate events will get created since each event has a unique id.
+Details:
+* Syntax: `npm run <ics|csv> <start> <end>`
+* Dates must be in the form `YYYY-MM-DD`
+* If you include a start date, you must include an end date
+* The Shift2Bikes API currently limits requests to no more than 45 days at once
+
+Sample usage:
+```
+npm run ics 2019-07-01 2019-08-15
+```
+
+## Importing into your calendar
+
+1. Run `npm run ics` to generate an `.ics` file.
+1. Double-click on the file (saved in `output/events.ics`), and your phone or computer will prompt you to import the events into your calendar. Pro-tip: create a new calendar for this so you don't overwhelm your personal one.
+
+NOTE: **Events that aren't already on Shift2Bikes.org at the time you run the script will not be included**! To get new events, you can run the script and import the file to your calendar as often as you like. No duplicate events will get created since each event has a unique id.
 
 ## Importing via CSV
 
-Alternatively, you can generate a `.csv` file by running `npm run csv`, while you can use to import the event data manually into Google calendar. This captures the event data at a point in time, so it will become out of date. Not currently recommended.
+Instead of generating an `.ics` file, you can run `npm run csv` to generate a `.csv` file. This will allow you to import the `.csv` file manually into Google calendar. This currently captures the event data at a point in time, and does not sync with event updates from the Shift website. Not currently recommended.
 
 ## About Pedalpalooza
 

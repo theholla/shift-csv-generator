@@ -1,14 +1,17 @@
 function getEventType(code) {
-  switch(code) {
-    case 'G': return '';
-    case 'F': return 'Family Friendly';
-    case 'A': return '21+';
+  switch (code) {
+    case 'G':
+      return '';
+    case 'F':
+      return 'Family Friendly';
+    case 'A':
+      return '21+';
   }
 }
 
 function getIcsDateArr(date, time) {
   const dateArr = date.split('-');
-  const timeArr = time.substring(0,5).split(':');
+  const timeArr = time.substring(0, 5).split(':');
   return [...dateArr, ...timeArr].map(str => parseInt(str, 10));
 }
 
@@ -39,10 +42,10 @@ function getTitle(event) {
 }
 
 function transformTime(hhmmss) {
-  let [hour, minute] = hhmmss.substring(0,5).split(':');
+  let [hour, minute] = hhmmss.substring(0, 5).split(':');
   const period = hour >= 12 ? 'PM' : 'AM';
   if (hour > 12) {
-    hour = -(12-hour); // help the americans
+    hour = -(12 - hour); // help the americans
   } else {
     hour = parseInt(hour, 10); // remove trailing 0 from AM times
   }
@@ -68,15 +71,13 @@ function getDescription(event) {
     event.phone,
     event.shareable,
     getOutsideLink(event.webname, event.weburl),
-  ].filter(line => line).join('\n');
+  ]
+    .filter(line => line)
+    .join('\n');
 }
 
 function getLocation(event) {
-  return [
-    event.venue,
-    event.address,
-    event.locdetails,
-  ].filter(line => line).join(' ');
+  return [event.venue, event.address, event.locdetails].filter(line => line).join(' ');
 }
 
 module.exports = {

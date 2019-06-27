@@ -2,7 +2,7 @@ const { getIcsDateArr, getTimeForDesc, transformTime } = require('../src/lib');
 
 test('getIcsStart', () => {
   // avoiding 'Legacy octal literals are not allowed in strict mode' err :/
-  const dateArr = [ '2019', '06', '05', '17', '30' ].map(str => parseInt(str, 10));
+  const dateArr = ['2019', '06', '05', '17', '30'].map(str => parseInt(str, 10));
   expect(getIcsDateArr('2019-06-05', '17:30:00')).toEqual(dateArr);
 });
 

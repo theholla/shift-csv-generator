@@ -1,23 +1,45 @@
 {
   "name": "shift-cal-json-to-csv",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/theholla/shift-csv-generator.git"
-  },
+  "description": "Tool that fetches events from the Shift2Bikes calendar and converts them from JSON to ICS",
   "version": "1.0.0",
-  "description": "Tool that fetches events from the Shift2Bikes calendar and converts them from JSON to CSV",
-  "main": "shift-cal-json-to-csv.js",
-  "scripts": {
-    "test": "jest",
-    "csv": "FILE_TYPE='csv' node ./index",
-    "ics": "node ./index"
+  "author": "holla@bikefarm.org",
+  "bugs": {
+    "url": "https://github.com/theholla/shift-ics-generator/issues",
+    "email": "holla@bikefarm.org"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "axios": "^0.19.0",
-    "ics": "^2.13.2",
+    "ics": "^2.12.1",
     "jest": "^24.8.0",
     "json2csv": "^4.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-jest": "^22.7.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "1.18.2"
+  },
+  "homepage": "https://github.com/theholla/shift-ics-generator/blob/master/README.md",
+  "keywords": [
+    "shift2bikes",
+    "pedalpalooza"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theholla/shift-ics-generator.git"
+  },
+  "scripts": {
+    "csv": "FILE_TYPE='csv' node ./index",
+    "ics": "node ./index",
+    "lint": "eslint --fix .",
+    "test": "jest"
   }
 }

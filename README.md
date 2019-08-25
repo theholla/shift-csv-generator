@@ -1,8 +1,8 @@
 # Shift2Bikes JSON to ICS generator
 
-This tool generates an .ics file that includes all the events that are already on the Shift2Bikes.org [Pedalpalooza calendar](https://www.shift2bikes.org/pedalpalooza-calendar/). Each of the events conforms to the iCalendar format and matches the event's unique id, so the events stay synced even after users update them on Shift2Bikes.org.
+This tool generates an .ics file that includes all the events that are already on the Shift2Bikes.org [Pedalpalooza calendar](https://www.shift2bikes.org/pedalpalooza-calendar/). Each of the events conforms to the iCalendar format and matches the event's unique id, so you can re-run the script as many times as you want to get the latest updates (and no duplicate events!).
 
-NOTE: Events that aren't already on Shift2Bikes.org at the time you run the script will not be included! This simply isn't possible. You can get around this by re-running the script and importing the events as often as you like.
+NOTE: Events or details that aren't already on Shift2Bikes.org at the time you run the script will not be included! This simply isn't possible. You can get around this by re-running the script and importing the events as often as you like.
 
 ## Usage
 
@@ -42,7 +42,7 @@ NOTE: **Events that aren't already on Shift2Bikes.org at the time you run the sc
 
 ## Importing via CSV
 
-Instead of generating an `.ics` file, you can run `npm run csv` to generate a `.csv` file. This will allow you to import the `.csv` file manually into Google calendar. This currently captures the event data at a point in time, and does not sync with event updates from the Shift website. Not currently recommended.
+Instead of generating an `.ics` file, you can run `npm run csv` to generate a `.csv` file. This will allow you to import the `.csv` file manually into Google calendar. Not currently recommended.
 
 ## About Pedalpalooza
 

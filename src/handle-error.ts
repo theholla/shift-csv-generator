@@ -1,4 +1,4 @@
-function handleError(error) {
+export default function handleError(error: any): void {
   if (error.response) {
     console.log(error.response.data);
     console.log(error.response.status);
@@ -9,5 +9,3 @@ function handleError(error) {
     console.log('Error', error.message);
   }
 }
-
-module.exports = handleError;

@@ -1,13 +1,16 @@
 root = true
 
-[*.{js,yml,json}]
-charset = utf-8
-end_of_line = lf
+[*]
 indent_style = space
 indent_size = 2
-insert_final_newline = true
+end_of_line = lf
+charset = utf-8
 trim_trailing_whitespace = true
+insert_final_newline = true
 
 [*.md]
-insert_final_newline = false
 trim_trailing_whitespace = false
+
+[*.json]
+trim_trailing_whitespace = false
+insert_final_newline = false

@@ -8,7 +8,7 @@
     "email": "holla@bikefarm.org"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "ics": "^2.19.0",
     "jest": "^24.9.0"
   },

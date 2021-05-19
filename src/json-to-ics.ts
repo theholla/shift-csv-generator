@@ -101,17 +101,19 @@ function getLocation(venue: string, address: string, locdetails?: string): strin
 const productId = '-//shift2bikes.org//NONSGML shiftcal v2.0//EN';
 
 function mapForICal(events: Event[]): EventAttributes[] & MappedEvent[] {
-  return events.map(event => {
-    return {
-      productId,
-      uid: getUid(event.id, event.caldaily_id),
-      title: getTitle(event.title, event.cancelled),
-      start: getIcsDateArr(event.date, event.time),
-      end: getIcsDateArr(event.date, event.endtime || event.time),
-      description: getDescription(event),
-      location: getLocation(event.venue, event.address, event.locdetails),
-    };
-  });
+  return events
+    .filter(event => event.id) // events with no id also have no other meta
+    .map(event => {
+      return {
+        productId,
+        uid: getUid(event.id, event.caldaily_id),
+        title: getTitle(event.title, event.cancelled),
+        start: getIcsDateArr(event.date, event.time),
+        end: getIcsDateArr(event.date, event.endtime || event.time),
+        description: getDescription(event),
+        location: getLocation(event.venue, event.address, event.locdetails),
+      };
+    });
 }
 
 /**

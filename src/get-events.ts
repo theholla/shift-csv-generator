@@ -76,7 +76,7 @@ interface ShiftCalResponse {
  * Call Shift2Bikes.org API to get events
  */
 const baseUrl = 'https://www.shift2bikes.org/api/events.php';
-export function getEvents(start = '2019-06-01', end = '2019-06-30'): Promise<Event[]> {
+export function getEvents(start = '2021-06-01', end = '2021-08-31'): Promise<Event[]> {
   if (start || end) {
     validateArgs(start, end);
   }
